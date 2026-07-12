@@ -12,8 +12,13 @@ void	iter(Type_Array *array, const size_t siz, Fn_T fnc) {
 }
 
 template<typename T>
-void	incr(T &nbr) {
-	nbr++;
+void	incr(T &elm) {
+	elm++;
+}
+
+template<typename T>
+void	print(const T &elm) {
+	std::cout << elm << std::endl;
 }
 
 #endif

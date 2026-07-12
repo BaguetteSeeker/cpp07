@@ -3,6 +3,7 @@
 int main( void ) {
 	int a[] = {0, 1, 2, 7, 6, 5};
 	char str[] = "abc";
+	const char constStr[] = "Const print";
 
 	std::cout << "State of int array before calling iter:" << std::endl;
 	for (size_t i = 0; i < sizeof(a) / sizeof(a[0]); i++)
@@ -20,11 +21,15 @@ int main( void ) {
 	for (size_t i = 0; i < sizeof(str) - 1; i++)
 		std::cout << "Arr[" << i <<"] = " << str[i] << std::endl;
 
-	iter(str, sizeof(str), incr<char>);
+	iter(str, sizeof(str) - 1, incr<char>);
 
 	std::cout << "State of str array after calling iter:" << std::endl;
 	for (size_t i = 0; i < sizeof(str) - 1; i++)
 		std::cout << "Arr[" << i <<"] = " << str[i] << std::endl;
+
+	std::cout << "\n---------------------\n" << std::endl;
+
+	iter(constStr, sizeof(constStr) - 1, print<char>);
 	
 	return (0);
 }
