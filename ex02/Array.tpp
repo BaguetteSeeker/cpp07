@@ -27,10 +27,10 @@ template <typename T>
 Array<T> &Array<T>::operator=(const Array &src) {
 	if (this != &src) {
 		delete [] _arr;
-		this->_arr = new T[src->size()];
+		this->_arr = new T[src.size()];
 		this->_size = src.size();
 		for (size_t i = 0; i < this->_size; i++)
-			this->_arr[i] = src->_arr[i];
+			this->_arr[i] = src._arr[i];
 	}
 	return (*this);
 }
