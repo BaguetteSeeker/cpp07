@@ -15,16 +15,26 @@ int main( void ) {
 		try { 
 			test1[3] = 55; std::cout << "Index 3 modified" << std::endl; 
 			test1[0] = 42; std::cout << "Index 0 modified" << std::endl;
-			test[10] = 1; }
+			test1[10] = 1; }
 		catch (std::exception &e) {
 			std::cout << "Index 10 couldn't be accessed ↓" << std::endl;
 			std::cout << "Exception:" << e.what() << std::endl;
 		}
 		printTwoArr(test1, "test1", test, "test0");
 	
-		std::cout << "\n--------  Constructing test2 from test1 array --------\n" << std::endl;
+		std::cout << "\n--------  Assigning a copy construct test1 to test2 --------\n" << std::endl;
 		Array<int> test2 = Array<int>(test1);
 		printArr(test2, "test2");
+
+		std::cout << "\n--------  Overwriting test2 with Array(10) --------\n" << std::endl;
+		Array<int> oldTest2 = test2;
+		test2 = Array<int>(10);
+		printTwoArr(oldTest2, "oldTest2", test2, "test2");
+
+		std::cout << "\n--------  Float(25) --------\n" << std::endl;
+		Array<float> arrFloat(25);
+		printArr(arrFloat, "arrFloat");
+
 	}
 	catch (std::exception &e) {
 		std::cout << "Exception: " << e.what() << std::endl;

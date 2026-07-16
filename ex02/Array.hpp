@@ -19,7 +19,7 @@ class Array {
 		~Array( void );
 		Array 	&operator=( const Array &src );
 		T		&operator[]( unsigned int i );
-		// T const	&operator[]( unsigned int i );
+		T const	&operator[]( unsigned int i ) const;
 
 		unsigned int	size( void ) const;
 
